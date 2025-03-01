@@ -11,7 +11,6 @@ void main(List<String> arguments) async {
   try {
     CliDataProvider.instance.args = arguments;
     Command command = CliCommand.instance.findCommand();
-    print(command);
     if (command.requiredValidate()) {
       await command.validations?.validate();
       await PubspecUtils.instance.init();

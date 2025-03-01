@@ -1,6 +1,6 @@
 import 'package:statekit_cli/commands/auth_screens_create_command.dart';
 import 'package:statekit_cli/commands/help_command.dart';
-import 'package:statekit_cli/commands/init_command.dart';
+import 'package:statekit_cli/commands/init_command/init_command.dart';
 import 'package:statekit_cli/commands/screen_create_command.dart';
 import 'package:statekit_cli/validations/auth_screens_validations.dart';
 import 'package:statekit_cli/validations/init_validations.dart';

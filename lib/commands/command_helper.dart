@@ -24,16 +24,11 @@ mixin CommandHelper {
     return await file.readAsString();
   }
 
-  Future<void> writeFile({required String path, required String content}) async {
+  Future<void> writeFile({required String path, required String content, String? screenName}) async {
     File file = File(path.path);
     if (!await file.exists()) {
       await file.create(recursive: true);
     }
-    await file.writeAsString(content);
-  }
-
-  String capitalizeFirst(String s) {
-    if (s.isEmpty || s.length == 1) return s;
-    return s[0].toUpperCase() + s.substring(1).toLowerCase();
+    await file.writeAsString(content.sanitizeFileContent(screenName));
   }
 }

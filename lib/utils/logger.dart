@@ -3,12 +3,19 @@ import 'package:dart_console/dart_console.dart';
 class Logger extends Console {
   static final Logger _logger = Logger._();
   static Logger get instance => _logger;
+
   Logger._();
 
   void message(String message) {
     resetColorAttributes();
     setForegroundColor(ConsoleColor.white);
     writeLine(message);
+  }
+
+  void messageWrite(String message) {
+    resetColorAttributes();
+    setForegroundColor(ConsoleColor.white);
+    write(message);
   }
 
   void info(String message) {

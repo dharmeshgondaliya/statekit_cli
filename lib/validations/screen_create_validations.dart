@@ -10,8 +10,9 @@ class ScreenCreateValidations extends Validations {
   @override
   Future<void> validate() async {
     await super.validate();
-    bool directoryExist = await checkDirectoryExist(Constants.screensDirectoryPath);
-    if (!directoryExist) {
+    bool screenDirectoryExist = await checkDirectoryExist(Constants.screensDirectoryPath);
+    bool modulesDirectoryExist = await checkDirectoryExist(Constants.modulesDirectoryPath);
+    if (!screenDirectoryExist && !modulesDirectoryExist) {
       throw CliException(message: "${Constants.screensDirectoryPath} Directory not found");
     }
     for (String screenName in CliDataProvider.instance.args.sublist(2)) {
